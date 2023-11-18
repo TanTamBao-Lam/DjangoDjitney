@@ -46,15 +46,21 @@ In **routes/urls.py**, add a `path` that calls the `LinesView` we made as a func
   - Ensure that the page is available at `"lines/<pk>/update/"`.
 
 10. The town should also be able to delete any lines that have to be decommissioned.
+
 Create a `DeleteLineView` that they can use for this. Follow the general pattern for adding a new View, and specifically for `DeleteLineView`, add a `success_url` property with a value of `"/lines"`.
+
 Then, add a path so that the view is accessible at `"lines/<pk>/delete/"` with `name="delete_line"`.
 
 11. Before you can test the functionality you’ve built for viewing, creating, updating, and deleting lines, you’ll have to edit the **base** template to uncomment the link corresponding to lines in the navbar.
+
 Navigate to **routes/base.html** and find the `<nav>` element. You’ll notice that the links for the `lines`, `stations`, and `stops` pages are commented out. Uncomment only the lines link in the `<nav>`, and then refresh the application in the browser pane on the right.
+
 You can check if your `LinesView` worked by navigating to `localhost:8000/lines` in the web browser, or clicking that link in the navbar. You should see the three jitney lines that have been installed by the town and you have a `+` button to add new `Line`!
 
 12. Test your `CreateLineView` by adding some new lines. Hit the add button below the lines table, and add a new line called _“Carpet”_, and another called _“Green Tree”_. These should show up in the lines table now, thanks to the `LinesView` we created earlier.
+    
 Now, the town wishes to be more specific with the name of the “Carpet” line, and rename it to the ***“Jungle Carpet”*** line to indicate the correct subspecies. Click on the **Carpet** line in your lines table to be taken to your update page and validate that you can rename it to **Jungle Carpet**.
+
 Lastly, validate your `DeleteLineView` by clicking the ❌ next to the “Green Tree” route. Codes-ville has agreed that four lines is more than enough to service their commuters for now. After you’ve confirmed the delete, “Green Tree” should no longer appear in the lines table.
 
 ### Implement the views for Stations
