@@ -7,6 +7,7 @@ from .forms import StopForm, LineForm, StationForm
 # Import views templates
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 # home views
@@ -46,3 +47,6 @@ class UpdateLineView(UpdateView):
 class DeleteLineView(DeleteView):
     model = Line
     template_name = "routes/delete_line.html"
+    # Need to define a success_url after delete is success.
+    success_url = reverse_lazy("lines")
+    
