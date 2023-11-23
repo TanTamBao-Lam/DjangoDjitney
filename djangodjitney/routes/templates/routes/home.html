@@ -8,6 +8,9 @@ Django Djitter - Home
 <div class="container">
     <div>
         <h2>Lines</h2>
+        {% if lines|length == 0 %}
+        <p>No lines to display</p>
+        {% else %}
         <table class="line-table">
             <thead>
                 <tr>
@@ -32,7 +35,9 @@ Django Djitter - Home
             </tr>
             {% endfor %}
             </tbody>
-         </table>
+        </table>
+        {% endif %}
+        
     </div>
 </div>
 {% endblock %}

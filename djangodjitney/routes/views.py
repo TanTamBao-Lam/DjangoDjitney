@@ -4,7 +4,9 @@ from django.shortcuts import render
 from .models import Line, Stop, Station
 from .forms import StopForm, LineForm, StationForm
 
+# Import views templates
 from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 # home views
