@@ -34,14 +34,13 @@ class LinesView(ListView):
 class CreateLineView(CreateView):
     model = Line
     template_name = "routes/add_line.html"
-    #__all__ is used to substitute to all fields in the models.
-    fields = "__all__"
+    form_class = LineForm
     
 # Update Lines View
 class UpdateLineView(UpdateView):
     model = Line
     template_name = "routes/update_line.html"
-    fields = "__all__"
+    form_class = LineForm
     
 # Delete Lines View
 class DeleteLineView(DeleteView):
@@ -50,3 +49,26 @@ class DeleteLineView(DeleteView):
     # Need to define a success_url after delete is success.
     success_url = reverse_lazy("lines")
     
+
+"""
+Views for Station
+"""
+class StationsView(ListView):
+    model = Station
+    template_name = "routes/stations.html"
+    
+
+class CreateStationView(CreateView):
+    model = Station
+    template_name = "routes/add_station.html"
+    form_class = StationForm
+    
+class UpdateStationView(UpdateView):
+    model = Station
+    template_name = "routes/update_station.html"
+    form_class = StationForm
+    
+class DeleteStationView(DeleteView):
+    model = Station
+    template_name = "routes/delete_station.html"
+    success_url = reverse_lazy("stations")
